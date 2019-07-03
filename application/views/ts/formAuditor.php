@@ -4,11 +4,24 @@
 			<table id="dgTambahAuditor" style="width:100%;height:100%;">
 				<tr>
 					<td>Nomor PKPT:</td>
-                	<td><input name="txtPKPT" id="txtPKPT" class="f1 easyui-textbox"></input></td>
+                	<td><input name="txtPKPT" id="txtPKPT" class="f1 easyui-textbox" style="width:100%"></input></td>
             	</tr>
             	<tr>
             		<td>Nama Karyawan:</td>
-                	<td><input id="cbKaryawan" class="easyui-combobox" name="cbKaryawan" data-options="valueField:'NIP',textField:'Nama',url:'<?php echo base_url("index.php/ts/auditor_ts/daftarKaryawan");?>'"></input></td>
+                	<td><select id="cbKaryawan" class="easyui-combogrid" style="width:100%" data-options="
+		                    idField: 'NIP',
+		                    textField: 'Nama',
+		                    url: '<?php echo base_url("index.php/ts/auditor_ts/daftarKaryawan");?>',
+		                    columns: [[
+		                        {field:'NIP',title:'NIP'},
+		                        {field:'Nama',title:'Nama Lengkap'},
+		                        {field:'Index_Karyawan',title:'Index'},
+		                        {field:'Kode_Jabatan',title:'Kode Jabatan'}
+		                    ]],
+		                    fitColumns: true
+		                	">
+		            	</select>
+		            </td>
             	</tr>
 			</table>
 		</div>
@@ -29,7 +42,8 @@
 		});
 		if(statusForm){
 			var no_pkpt = $('#txtPKPT').val();
-			var nip = $('#cbKaryawan').combobox('getValue');
+			var nip = $('#cbKaryawan').combogrid('getValue');
+			console.log(nip);
 			var target = "#jendelaTambahAuditor";
 			$.ajax({
 				url			: "<?php echo base_url(); ?>"+"index.php/ts/auditor_ts/tambahAuditor", 

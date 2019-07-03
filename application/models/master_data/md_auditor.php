@@ -5,7 +5,7 @@ class Md_auditor extends CI_Model {
         parent::__construct();
     }
 	function ambilAuditor(){
-		$this->db->select("a.No_PKPT,a.NIP,CONVERT(varchar,k.Nama_Karyawan,255) Nama");
+		$this->db->select("a.No_PKPT,a.NIP,CONVERT(varchar,k.Nama_Karyawan,255) Nama,k.Index_Karyawan");
 		$this->db->from("Auditor a");
 		$this->db->join('Karyawan k', 'a.NIP = k.NIP');
 		$this->db->order_by("a.No_PKPT",'asc');
@@ -19,7 +19,7 @@ class Md_auditor extends CI_Model {
 		return $this->db->get();
     }
     function ambilKaryawan(){
-		$this->db->select("k.NIP,CONVERT(varchar,k.Nama_Karyawan,255) Nama");
+		$this->db->select("k.NIP,CONVERT(varchar,k.Nama_Karyawan,255) Nama,k.Index_Karyawan,k.Kode_Jabatan");
 		$this->db->from("Karyawan k");
 		return $this->db->get();
     }

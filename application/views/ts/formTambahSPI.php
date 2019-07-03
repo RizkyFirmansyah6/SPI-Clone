@@ -84,7 +84,21 @@
 						<tr>
 							<td>Pengawas</td>
 							<td>:</td>
-							<td><input id="cbPengawas" style="width: 300px" class="easyui-combobox" name="cbPengawas" data-options="valueField:'No_PKPT',textField:'Nama',url:'<?php echo base_url("index.php/ts/kelola_spi_ts/daftarSemuaAuditor");?>'"></input></td>
+							<td>
+								<select id="cbPengawas" class="easyui-combogrid" style="width:100%" data-options="
+				                    idField: 'NIP',
+				                    textField: 'Nama',
+				                    url: '<?php echo base_url("index.php/ts/kelola_spi_ts/daftarSemuaAuditor");?>',
+				                    columns: [[
+				                    	{field:'No_PKPT',title:'No PKPT'},
+				                        {field:'NIP',title:'NIP'},
+				                        {field:'Nama',title:'Nama Lengkap'},
+				                        {field:'Index_Karyawan',title:'Index'}
+				                    ]],
+				                    fitColumns: true
+				                	">
+				            	</select>
+							</td>
 							<td><input style="width: 60px" class="easyui-textbox" id="txtPengawas" readonly="true"></td>
 						</tr>
 						<tr>
@@ -94,12 +108,98 @@
 						<tr>
 							<td>Ketua</td>
 							<td>:</td>
-							<td><input id="cbKetua" style="width: 300px" class="easyui-combobox" name="cbKetua" data-options="valueField:'No_PKPT',textField:'Nama',url:'<?php echo base_url("index.php/ts/kelola_spi_ts/daftarSemuaAuditor");?>'"></input></td>
+							<td>
+								<select id="cbKetua" class="easyui-combogrid" style="width:100%" data-options="
+				                    idField: 'NIP',
+				                    textField: 'Nama',
+				                    url: '<?php echo base_url("index.php/ts/kelola_spi_ts/daftarSemuaAuditor");?>',
+				                    columns: [[
+				                    	{field:'No_PKPT',title:'No PKPT'},
+				                        {field:'NIP',title:'NIP'},
+				                        {field:'Nama',title:'Nama Lengkap'},
+				                        {field:'Index_Karyawan',title:'Index'}
+				                    ]],
+				                    fitColumns: true
+				                	">
+				            	</select>
+							</td>
 							<td><input style="width: 60px" class="easyui-textbox" id="txtKetua" readonly="true"></td>
 						</tr>
 						<tr>
 							<td colspan="2"></td>
 							<td><span id="nipKetua"></span></td>
+						</tr>
+						<tr>
+							<td>Anggota 1</td>
+							<td>:</td>
+							<td>
+								<select id="cbAnggota1" class="easyui-combogrid" style="width:100%" data-options="
+				                    idField: 'NIP',
+				                    textField: 'Nama',
+				                    url: '<?php echo base_url("index.php/ts/kelola_spi_ts/daftarSemuaAuditor");?>',
+				                    columns: [[
+				                    	{field:'No_PKPT',title:'No PKPT'},
+				                        {field:'NIP',title:'NIP'},
+				                        {field:'Nama',title:'Nama Lengkap'},
+				                        {field:'Index_Karyawan',title:'Index'}
+				                    ]],
+				                    fitColumns: true
+				                	">
+				            	</select>
+							</td>
+							<td><input style="width: 60px" class="easyui-textbox" id="txtAnggota1" readonly="true"></td>
+						</tr>
+						<tr>
+							<td colspan="2"></td>
+							<td><span id="nipAnggota1"></span></td>
+						</tr>
+						<tr>
+							<td>Anggota 2</td>
+							<td>:</td>
+							<td>
+								<select id="cbAnggota2" class="easyui-combogrid" style="width:100%" data-options="
+				                    idField: 'NIP',
+				                    textField: 'Nama',
+				                    url: '<?php echo base_url("index.php/ts/kelola_spi_ts/daftarSemuaAuditor");?>',
+				                    columns: [[
+				                    	{field:'No_PKPT',title:'No PKPT'},
+				                        {field:'NIP',title:'NIP'},
+				                        {field:'Nama',title:'Nama Lengkap'},
+				                        {field:'Index_Karyawan',title:'Index'}
+				                    ]],
+				                    fitColumns: true
+				                	">
+				            	</select>
+							</td>
+							<td><input style="width: 60px" class="easyui-textbox" id="txtAnggota2" readonly="true"></td>
+						</tr>
+						<tr>
+							<td colspan="2"></td>
+							<td><span id="nipAnggota2"></span></td>
+						</tr>
+						<tr>
+							<td>Anggota 3</td>
+							<td>:</td>
+							<td>
+								<select id="cbAnggota3" class="easyui-combogrid" style="width:100%" data-options="
+				                    idField: 'NIP',
+				                    textField: 'Nama',
+				                    url: '<?php echo base_url("index.php/ts/kelola_spi_ts/daftarSemuaAuditor");?>',
+				                    columns: [[
+				                    	{field:'No_PKPT',title:'No PKPT'},
+				                        {field:'NIP',title:'NIP'},
+				                        {field:'Nama',title:'Nama Lengkap'},
+				                        {field:'Index_Karyawan',title:'Index'}
+				                    ]],
+				                    fitColumns: true
+				                	">
+				            	</select>
+							</td>
+							<td><input style="width: 60px" class="easyui-textbox" id="txtAnggota3" readonly="true"></td>
+						</tr>
+						<tr>
+							<td colspan="2"></td>
+							<td><span id="nipAnggota3"></span></td>
 						</tr>
 						<?php $anggota=1; ?>
 					</table>
@@ -146,43 +246,35 @@ $(function(){
         	$('input:checkbox').removeAttr('checked');
         }
     });
-    $("#cbPengawas").combobox({
-    	onChange:function(){
-    		No_PKPT = $("#cbPengawas").combobox('getValue');
-    		$.ajax({
-				url			: "<?php echo base_url(); ?>"+"index.php/ts/kelola_spi_ts/ambilAuditorBy", 
-				type		: "POST", 
-				dataType	: "html",
-				data		: {pkpt:No_PKPT},
-				success: function(response){
-					var auditor = JSON.parse(response);
-					$("#txtPengawas").textbox('setValue',auditor[0].Index_Karyawan);
-					$('#nipPengawas').html(auditor[0].NIP);
-				},
-				error: function(){
-					alert('error');
-				},
-			});
-    	}
+    $("#cbPengawas").combogrid({
+    	onSelect: function(index,row){
+			$("#txtPengawas").textbox('setValue',row.Index_Karyawan);
+			$('#nipPengawas').html(row.NIP);
+		}
 	});
-	$("#cbKetua").combobox({
-    	onChange:function(){
-    		No_PKPT = $("#cbKetua").combobox('getValue');
-    		$.ajax({
-				url			: "<?php echo base_url(); ?>"+"index.php/ts/kelola_spi_ts/ambilAuditorBy", 
-				type		: "POST", 
-				dataType	: "html",
-				data		: {pkpt:No_PKPT},
-				success: function(response){
-					var auditor = JSON.parse(response);
-					$("#txtKetua").textbox('setValue',auditor[0].Index_Karyawan);
-					$('#nipKetua').html(auditor[0].NIP);
-				},
-				error: function(){
-					alert('error');
-				},
-			});
-    	}
+	$("#cbKetua").combogrid({
+    	onSelect: function(index,row){
+			$("#txtKetua").textbox('setValue',row.Index_Karyawan);
+			$('#nipKetua').html(row.NIP);
+		}
+	});
+	$("#cbAnggota1").combogrid({
+    	onSelect: function(index,row){
+			$("#txtAnggota1").textbox('setValue',row.Index_Karyawan);
+			$('#nipAnggota1').html(row.NIP);
+		}
+	});
+	$("#cbAnggota2").combogrid({
+    	onSelect: function(index,row){
+			$("#txtAnggota2").textbox('setValue',row.Index_Karyawan);
+			$('#nipAnggota2').html(row.NIP);
+		}
+	});
+	$("#cbAnggota3").combogrid({
+    	onSelect: function(index,row){
+			$("#txtAnggota3").textbox('setValue',row.Index_Karyawan);
+			$('#nipAnggota3').html(row.NIP);
+		}
 	});
 });
 

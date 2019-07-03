@@ -25,7 +25,7 @@
 		<input type="hidden" id="row" value=""/>
 		<input type="hidden" id="jen" value=""/>
 		<input type="hidden" id="fieldPB" value=""/> 
-	    <div id="jendelaTambahAuditor" class="easyui-window" title="Modal Window" data-options="modal:true,closed:true,iconCls:'icon-print'" style="width:500px; min-height:300px; padding:5px;">
+	    <div id="jendelaTambahAuditor" class="easyui-window" title="Modal Window" data-options="modal:true,closed:true,iconCls:'icon-print'" style="width:550px; min-height:300px; padding:5px;">
 		</div>
 	</div>
 </div>
