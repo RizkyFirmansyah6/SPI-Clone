@@ -1,0 +1,79 @@
+*{
+	font-size:12px;
+}
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: 'ubunturegular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	padding:20px;
+	font-size:12px;
+	margin:0;
+}
+h2 {
+	font-size:18px;
+	font-weight:bold;
+	margin:0;
+	margin-bottom:15px;
+}
+a{
+	text-decoration:none;
+}
+input, texarea, select, .textbox, .textbox-text{
+	-webkit-box-sizing : border-box;‌​
+    -moz-box-sizing : border-box;
+    box-sizing : border-box;
+}
+.custom-table a:link {
+	color: #666;
+	font-weight: bold;
+	text-decoration:none;
+}
+.custom-table a:visited {
+	color: #999999;
+	font-weight:bold;
+	text-decoration:none;
+}
+.custom-table a:active,
+.custom-table a:hover {
+	color: #bd5a35;
+	text-decoration:underline;
+}
+.custom-table {
+	color:#666;
+	font-size:12px;
+	background:#eaebec;
+	border:#b4d5ec 1px solid;
+	border-collapse: collapse;
+}
+.custom-table th {
+	padding:6px;
+	border:1px solid #b4d5ec;
+	background: #ddecf6;
+}
+.custom-table td {
+	padding:6px;
+	border:1px dashed #b4d5ec;
+	border-bottom: 1px solid #b4d5ec;
+	background: #fafafa;
+}
+.custom-table tr:hover td {
+	background: #f2f2f2;
+}
+.tagNameArea{
+	text-align:right;
+}
+.settingButton{
+	background-color:#eee;
+}
+.form-caption{
+	font-weight:bolder;
+	padding-top:2px;
+}
+.pageTitle{
+	padding:7px; 
+	background-color:#2980b9; 
+	color:#fff; 
+	font-size:16px; 
+	text-align:center;
+}
